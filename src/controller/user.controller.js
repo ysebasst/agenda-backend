@@ -19,12 +19,10 @@ controller.registerUser = async (req, res) => {
     const { error } = schemaRegister.validate({ name, email, password });
 
     if (error) {
-      return res
-        .status(400)
-        .json({
-          error: error.details[0].message,
-          message: "registration error",
-        });
+      return res.status(400).json({
+        error: error.details[0].message,
+        message: "registration error",
+      });
     }
 
     // VALIDATE UNIQUE EMAIL
@@ -65,7 +63,7 @@ controller.loginUser = async (req, res) => {
         message: "Email or password was not correct",
       });
     }
-    const validPassword = compare(password, user.password);
+    const validPassword = await compare(password, user.password);
     if (!validPassword) {
       return res.status(400).json({
         error: "Email or password was not correct",
