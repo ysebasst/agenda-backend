@@ -1,0 +1,38 @@
+@url = http://localhost:4000/api/v1/reminder
+@id = 60e56143bf9774c596d3f8ff
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZTUwZWIyYzczMDBjNmQxOWI2ZjBhNyIsIm5hbWUiOiJhc2RmIiwiZW1haWwiOiJhc2RmQGdtYWlsLmNvbSIsImlhdCI6MTYyNTYyODMzMH0.mctXg1ANyTA_d1LNTz6uZbBA7kTuxM4PhHP5yXLqyy0
+
+###
+GET {{url}}
+auth-token: {{token}}
+
+###
+POST {{url}}
+auth-token: {{token}}
+Content-Type: application/json
+
+{
+  "title": "undefined",
+  "date": "2000-01-01",
+  "time": "00:00"
+}
+
+###
+GET {{url}}/{{id}}
+auth-token: {{token}}
+Content-Type: application/json
+
+###
+PUT {{url}}/{{id}}
+auth-token: {{token}}
+Content-Type: application/json
+
+{
+  "title": "modify",
+  "date": "2000-01-01",
+  "time": "00:00"
+}
+
+###
+DELETE {{url}}/{{id}}
+auth-token: {{token}}

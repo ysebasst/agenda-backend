@@ -1,0 +1,40 @@
+@url = http://localhost:4000/api/v1/receipt
+@id = 60e56c1940ba86cc85a19442
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZTUwZWIyYzczMDBjNmQxOWI2ZjBhNyIsIm5hbWUiOiJhc2RmIiwiZW1haWwiOiJhc2RmQGdtYWlsLmNvbSIsImlhdCI6MTYyNTYyODMzMH0.mctXg1ANyTA_d1LNTz6uZbBA7kTuxM4PhHP5yXLqyy0
+
+###
+GET {{url}}
+auth-token: {{token}}
+
+###
+POST {{url}}
+auth-token: {{token}}
+Content-Type: application/json
+
+{
+  "title": "undefined",
+  "timelyPayment": "2021-07-07T08:50:02.110Z",
+  "price": 23000,
+  "paymentMade": "2021-07-05T08:50:02.110Z"
+}
+
+###
+GET {{url}}/{{id}}
+auth-token: {{token}}
+Content-Type: application/json
+
+###
+PUT {{url}}/{{id}}
+auth-token: {{token}}
+Content-Type: application/json
+
+{
+  "title": "modify",
+  "timelyPayment": "2021-07-07T08:50:02.110Z",
+  "price": 23000,
+  "paymentMade": "2021-07-05T08:50:02.110Z"
+}
+
+###
+DELETE {{url}}/{{id}}
+auth-token: {{token}}
